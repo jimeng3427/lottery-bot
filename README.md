@@ -11,5 +11,16 @@
 - 환경 변수들을 만들어 줍니다 (.env.sample 참조) 
 - 매주 로또 및 연금복권 구매 및 당첨 과정을 자동으로 알려드려요 🎉
 
+
+## Telegram 알림 설정
+
+Telegram으로 알림을 받으려면 `.env` 또는 GitHub Secrets에 아래 값을 추가합니다.
+
+```env
+TELEGRAM_BOT_TOKEN=YOUR_TELEGRAM_BOT_TOKEN
+TELEGRAM_CHAT_ID=YOUR_TELEGRAM_CHAT_ID
+```
+
+`TELEGRAM_BOT_TOKEN`과 `TELEGRAM_CHAT_ID`가 모두 있으면 Telegram으로 전송하고, 없으면 기존 Slack/Discord webhook 설정을 사용합니다.
 # Reference 
 - https://github.com/roeniss/dhlottery-api

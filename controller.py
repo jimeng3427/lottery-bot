@@ -25,7 +25,17 @@ def _setup_and_login():
     if telegram_bot_token and telegram_bot_token.startswith("YOUR_"):
         telegram_bot_token = None
 
-    if slack_webhook_url:
+    telegram_chat_id = os.environ.get('TELEGRAM_CHAT_ID')
+    if telegram_chat_id and telegram_chat_id.startswith("YOUR_"):
+        telegram_chat_id = None
+
+    if telegram_bot_token and telegram_chat_id:
+        webhook_url = {
+            "type": "telegram",
+            "bot_token": telegram_bot_token,
+            "chat_id": telegram_chat_id,
+        }
+    elif slack_webhook_url:
         webhook_url = slack_webhook_url
     else:
         webhook_url = discord_webhook_url
